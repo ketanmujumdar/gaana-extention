@@ -1,0 +1,31 @@
+{
+  "name": "Gaana.com extention, to make your life simple",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "browser_action": {
+      "default_title": "Set this page's color.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+   "background": {
+    "persistent": false,
+    "scripts": ["js/jquery.js", "js/background.js"]
+  },
+  "commands": {
+    "extplayPause": {
+      "suggested_key": { "default": "Alt+Shift+P" },
+      "description": "Toggle Play Pause on gaana.com"
+    },
+    "extNext": {
+      "suggested_key": { "default": "Alt+Shift+N" },
+      "description": "To play Next song on gaana.com"
+    },
+    "extPrev": {
+      "suggested_key": { "default": "Alt+Shift+B" },
+      "description": "Play Previous song on gaana.com"
+    }
+  },
+  "manifest_version": 2
+}

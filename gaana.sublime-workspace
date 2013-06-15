@@ -1,0 +1,162 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"e",
+				"executeScript"
+			],
+			[
+				"in",
+				"input	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/popup.html",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/js/play.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/js/popup.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/js/jquery.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/js/kickstart.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrom Extention Project 1/style.css",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrome Extention Project 2/demo.html",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrom Extention Project 1/manifest.json",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrome Extention Project 2/background.html",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/make_page_red/manifest.json",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/make_page_red/background.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/icon.png",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrome Extention Project 2/manifest.json",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/manifest.json",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrome Extention Project 2/script.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/play.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/set_page_color/popup.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/background-simple/manifest.json",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrom Extention Project 1/tutorial.html",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Chrom Extention Project 1/script.js",
+		"/Library/WebServer/Documents/trunk/bob/application/configs/dev.ini",
+		"/Library/WebServer/Documents/trunk/alice/alice/protected/config/config.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
