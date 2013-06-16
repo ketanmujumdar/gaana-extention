@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
 	var songInfo = '';
 	var imgInfo = '';
 	var gaanaLoaded = false;
-
+	var isPaused = true;
 	//initialize local storage
 	if(!gaanaLoaded) {
 		initGaana();
@@ -19,10 +19,10 @@ jQuery(document).ready(function(){
 
 		imgInfo = jQuery(event.target.outerHTML).attr('src');
 		
-			if(!isEmpty(imgInfo)) {
-				ico = imgInfo;
-			}		
-			callNotification(ico, songName, songAlbum);
+		if(!isEmpty(imgInfo)) {
+			ico = imgInfo;
+		}		
+		callNotification(ico, songName, songAlbum);
 	});
 
 	/* Fetch Song Info */
@@ -43,7 +43,7 @@ jQuery(document).ready(function(){
 
 	function callNotification(ico, songName, songAlbum) {
 		if(!isEmpty(songName) && !isEmpty(songAlbum) && !isEmpty(ico)) {
-				 chrome.runtime.sendMessage({ico: ico, title: songName, message: songAlbum}, function(response) {
+				 chrome.runtime.sendMessage({notify:'notification', ico: ico, title: songName, message: songAlbum}, function(response) {
 				 	songName = '';
 				 	songAlbum = '';
 				 	ico = '';

@@ -7,11 +7,20 @@ jQuery(document).ready(function(){
 */
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    createNotification(request.ico, request.title, request.message);
-    var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
-    //save to local storage
-    save(ext_name+'SongInfo', JSON.stringify(songInfo));
-    sendResponse({returnMsg: value}); // optional response
+
+  	if(request.notify == 'notification') {
+  	    createNotification(request.ico, request.title, request.message);
+	    var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
+	    //save to local storage
+	    save(ext_name+'SongInfo', JSON.stringify(songInfo));
+  	}
+
+  	if(request.save == 'save') {
+  		var isPaused = {'paused': 'true'};
+  		save(ext_name+'isPaused', JSON.stringify(songInfo));
+  	}
+
+    //sendResponse({returnMsg: value}); // optional response
   });
 
 	chrome.commands.onCommand.addListener(function(command) {
