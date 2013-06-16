@@ -24,7 +24,7 @@ var tab_id = 0;
 	
 setSongInfo();
 //auto refresh popup every 5 second, if its opened for long
-//setTimeout(function(){window.location.href = ext_popup;}, 5000);
+setTimeout(function(){window.location.href = ext_popup;}, 5000);
 
 	chrome.tabs.query({'url': '*://'+ext_site_name+'/*'},function(tab){
 		try
