@@ -2,16 +2,26 @@
   "name": "Gaana.com extention, to make your life simple",
   "version": "1.0",
   "permissions": [
-    "tabs", "http://*/*", "https://*/*"
+    "tabs", 
+    "http://gaana.com/*", 
+    "https://gaana.com/*", 
+    "notifications",
+    "storage"
   ],
+  "content_scripts": [
+    {
+      "matches": ["http://gaana.com/*"],
+      "js": ["js/jquery.js", "js/config.js", "js/local_storage.js", "js/event.js"]
+    }
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": ["js/jquery.js", "js/config.js", "js/notifications.js", "js/local_storage.js", "js/background.js"]
+  },
   "browser_action": {
       "default_title": "Set this page's color.",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
-  },
-   "background": {
-    "persistent": false,
-    "scripts": ["js/jquery.js", "js/background.js"]
   },
   "commands": {
     "extplayPause": {
@@ -25,6 +35,10 @@
     "extPrev": {
       "suggested_key": { "default": "Alt+Shift+B" },
       "description": "Play Previous song on gaana.com"
+    },
+    "extShuffle": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Toggle Shuffle gaana.com"
     }
   },
   "manifest_version": 2

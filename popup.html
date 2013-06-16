@@ -1,18 +1,28 @@
 <!doctype html>
 <html>
   <head>
+
     <title>Set Page Color Popup</title>
     <link rel="stylesheet" href="css/kickstart.css" media="all" />
     <script src="js/jquery.js"></script>
-    <script src="js/popup.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/local_storage.js"></script>
+
   </head>
   <body>
-  	<div style="width:200px;">
+  	<div style="width:350px;">
+
+<img class="align-left" id="extImage" src="http://placehold.it/100x100/4D99E0/ffffff.png&text=100x100" width="100" height="100" />
+<p><strong><span id="extName"></span></strong></p>
+<p><em> <span id="extAlbum"></span> </em></p>
+
+
 	    <button class="extPrev"><i class="icon-step-backward"></i></button>
 	    <button class="extPlayPause"><i class="icon-play"></i></button>
 	    <button class="extNext"><i class="icon-step-forward"></i></button>
-
-      <div class="crap"></div>
+      <button class="extShuffle"><i class="icon-random"></i></button>
 	</div>
   </body>
+
+  <script src="js/popup.js"></script>
 </html>
