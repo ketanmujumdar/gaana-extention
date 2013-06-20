@@ -1,6 +1,6 @@
 {
   "name": "Gaana.com extention, to make your life simple",
-  "version": "1.0",
+  "version": "1.1",
   "permissions": [
     "tabs", 
     "http://gaana.com/*", 
@@ -8,11 +8,16 @@
     "notifications",
     "storage"
   ],
+  "icons":
+   {
+      "128": "icon.png"
+   },
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "options_page": "options.html",
   "content_scripts": [
     {
       "matches": ["http://gaana.com/*"],
-      "js": ["js/jquery.js", "js/config.js", "js/local_storage.js", "js/event.js", "js/operations.js"]
+      "js": ["js/jquery.js", "js/config.js", "js/local_storage.js", "js/event.js"]
     }
   ],
   "background": {
@@ -20,7 +25,7 @@
     "scripts": ["js/jquery.js", "js/config.js", "js/notifications.js", "js/local_storage.js", "js/background.js"]
   },
   "browser_action": {
-      "default_title": "Set this page's color.",
+      "default_title": "Gaana Extention",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
   }, 
