@@ -18,3 +18,6 @@ var ext_radio = false;
 var ext_name = "gaana";
 //popup html name
 var ext_popup = "popup.html";
+
+//Gaana Radio urls
+var ext_radio = "http://gaana.com/#!/radiostations";

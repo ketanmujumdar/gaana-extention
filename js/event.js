@@ -7,6 +7,8 @@ jQuery(document).ready(function(){
 	var imgInfo = '';
 	var gaanaLoaded = false;
 	var isPaused = true;
+
+
 	//initialize local storage
 	if(!gaanaLoaded) {
 		initGaana();
@@ -47,7 +49,6 @@ jQuery(document).ready(function(){
 				 	songName = '';
 				 	songAlbum = '';
 				 	ico = '';
-				 	console.log(response.returnMsg);
 				 });
 			}
 	}
@@ -62,11 +63,14 @@ jQuery(document).ready(function(){
 
 
 	function initGaana() {
+
 		var songnm = jQuery('.songInfo .songName').html();
 		var songalbm = jQuery('.songInfo .albumNamePl').html();
 		var songicon = jQuery('.thumbHolder img').attr('src');
+
 		callNotification(songicon, songnm, songalbm);
 	}
+
 
 
 });

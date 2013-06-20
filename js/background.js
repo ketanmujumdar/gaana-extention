@@ -9,20 +9,35 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
 
   	if(request.notify == 'notification') {
-  	    createNotification(request.ico, request.title, request.message);
-	    var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
-	    //save to local storage
-	    save(ext_name+'SongInfo', JSON.stringify(songInfo));
+
+  		var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
+  		if(!isSimillar(songInfo)) {
+  			createNotification(request.ico, request.title, request.message);	
+  			save(ext_name+'SongInfo', JSON.stringify(songInfo));
+  		}
   	}
 
-  	if(request.save == 'save') {
-  		var isPaused = {'paused': 'true'};
-  		save(ext_name+'isPaused', JSON.stringify(songInfo));
+
+  	if(request.init = 'init') {
+  		//checks if its in radio or not
+  		var isRadio = {'radio': 'true'};
+  		chrome.tabs.query({'url': '*://'+ext_radio+'/*'},function(tab){
+  			save(ext_name+'isRadio', JSON.stringify(isRadio));
+  			sendResponse({radioAct: 'true'});
+  			return;
+  		});
+  		isRadio = {'radio': 'false'};
+  		save(save(ext_name+'isRadio', JSON.stringify(isRadio)));
   	}
 
     //sendResponse({returnMsg: value}); // optional response
   });
 
+
+	/*
+		Event listner for keypress or any command specified in manifest.json
+	
+	*/
 	chrome.commands.onCommand.addListener(function(command) {
 	var tab_id = 0;
 
@@ -49,5 +64,21 @@ chrome.runtime.onMessage.addListener(
 			}
 		});
 	});
+
+
+	function isSimillar(songObj) {
+
+		var dbSongObj = JSON.parse(get(ext_name+'SongInfo'));
+
+		if(dbSongObj =='undefined' || dbSongObj == undefined || dbSongObj == '') {
+			return false;
+		}
+		else if(songObj.ico == dbSongObj.ico && songObj.title == dbSongObj.title && songObj.album == dbSongObj.album) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 });
