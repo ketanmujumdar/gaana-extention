@@ -28,13 +28,12 @@ jQuery(document).ready(function(){
 	});
 
 	/* Fetch Song Info */
-	jQuery('.playerInner').bind('DOMNodeInserted', function(event) {
+	jQuery('.mainPlayer').bind('DOMNodeInserted', function(event) {
 		try {
-			songInfo = jQuery(event.target).find(".songInfo").html();
-			
+			songInfo = jQuery(event.target).find(".song-title1").html();
 			if(!isEmpty(songInfo)) {
-				songName = jQuery(event.target).find(" .songInfo .songName").html();
-				songAlbum = jQuery(event.target).find(" .songInfo .albumNamePl").html();
+				songName = jQuery(event.target).find(" .song-title1 #trackInfo").html();
+				songAlbum = jQuery(event.target).find(" .song-title1 .albumNamePl").html();
 			}
 		}
 		catch(exception) {
@@ -64,13 +63,11 @@ jQuery(document).ready(function(){
 
 	function initGaana() {
 
-		var songnm = jQuery('.songInfo .songName').html();
-		var songalbm = jQuery('.songInfo .albumNamePl').html();
+		var songnm = jQuery('.song-title1 #trackInfo').html();
+		var songalbm = jQuery('.song-title1 .albumNamePl').html();
 		var songicon = jQuery('.thumbHolder img').attr('src');
 
 		callNotification(songicon, songnm, songalbm);
 	}
-
-
 
 });
