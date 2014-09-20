@@ -66,6 +66,7 @@ var tab_id = 0;
 
 	function setSongInfo() {
 		try {
+			console.log(get(ext_name+'SongInfo'));
 			var SongInfo = JSON.parse(get(ext_name+'SongInfo'));
 			if(SongInfo == undefined || SongInfo == 'undefined' || SongInfo == null)
 			{

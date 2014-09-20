@@ -10,11 +10,16 @@ jQuery(document).ready(function(){
 
 
 	//initialize local storage
-	if(!gaanaLoaded) {
+	// if(!gaanaLoaded) {
+	// 	initGaana();
+	// 	gaanaLoaded	= true;
+	// }
+	
+	/* Trigger when the mplayer is loaded */
+	jQuery('.song-title1').bind('DOMNodeInserted', function(event) {
 		initGaana();
 		gaanaLoaded	= true;
-	}
-	
+	});
 
 	/* Fetch the latest thumbnail */
 	jQuery('.thumbHolder').bind('DOMNodeInserted', function(event) {
@@ -28,13 +33,17 @@ jQuery(document).ready(function(){
 	});
 
 	/* Fetch Song Info */
-	jQuery('.mainPlayer').bind('DOMNodeInserted', function(event) {
+	jQuery('.song-title1').bind('DOMSubtreeModified', function(event) {
 		try {
+			initGaana();
 			songInfo = jQuery(event.target).find(".song-title1").html();
 			if(!isEmpty(songInfo)) {
-				songName = jQuery(event.target).find(" .song-title1 #trackInfo").html();
-				songAlbum = jQuery(event.target).find(" .song-title1 .albumNamePl").html();
+				imgInfo = jQuery(event.target.outerHTML).attr('src');
+				songName = jQuery(event.target).find('.song-title1 #tx').text().split(" - ")[0];
+				songAlbum = jQuery(event.target).find('#tx .albumNamePl').html();
+				callNotification(imgInfo, songName, songAlbum);
 			}
+
 		}
 		catch(exception) {
 
@@ -45,6 +54,7 @@ jQuery(document).ready(function(){
 	function callNotification(ico, songName, songAlbum) {
 		if(!isEmpty(songName) && !isEmpty(songAlbum) && !isEmpty(ico)) {
 				 chrome.runtime.sendMessage({notify:'notification', ico: ico, title: songName, message: songAlbum}, function(response) {
+				 	console.log(response);
 				 	songName = '';
 				 	songAlbum = '';
 				 	ico = '';
@@ -63,8 +73,8 @@ jQuery(document).ready(function(){
 
 	function initGaana() {
 
-		var songnm = jQuery('.song-title1 #trackInfo').html();
-		var songalbm = jQuery('.song-title1 .albumNamePl').html();
+		var songnm = jQuery('.song-title1 #tx').text().split(" - ")[0];
+		var songalbm = jQuery('#tx .albumNamePl').html();
 		var songicon = jQuery('.thumbHolder img').attr('src');
 
 		callNotification(songicon, songnm, songalbm);

@@ -7,14 +7,16 @@ jQuery(document).ready(function(){
 */
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-
+  	console.log(request.notify);
   	if(request.notify == 'notification') {
 
   		var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
-  		if(!isSimillar(songInfo)) {
+  		console.log(songInfo);
+  		//if(!isSimillar(songInfo)) {
+			save(ext_name+'SongInfo', JSON.stringify(songInfo));
   			createNotification(request.ico, request.title, request.message);	
-  			save(ext_name+'SongInfo', JSON.stringify(songInfo));
-  		}
+  			//sendResponse(JSON.stringify(songInfo));
+  		//}
   	}
 
 
