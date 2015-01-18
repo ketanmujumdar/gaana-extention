@@ -1,6 +1,16 @@
 jQuery(document).ready(function(){
 
 var tab_id = 0;
+
+
+
+isUpdated = get("updated");
+if( isUpdated != "1421579528" || isUpdated != 1421579528) {
+	window.open(chrome.extension.getURL("options.html"));
+	save("updated", 1421579528);
+}
+	
+
 	
 
 
