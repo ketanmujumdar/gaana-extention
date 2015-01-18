@@ -3,10 +3,11 @@ jQuery(document).ready(function(){
  
   var defaultValue = get("notification");
 
-  if(defaultValue == 1 || defaultValue == "1") {
+  if(isEmpty(defaultValue){
   	jQuery("#notificationToggle").prop('checked', true);
+    save("notification", 1);
   }
-  else if(isEmpty(defaultValue) {
+  else if(defaultValue == 1 || defaultValue == "1")  {
    jQuery("#notificationToggle").prop('checked', true); 
   }
   else {
