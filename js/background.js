@@ -12,8 +12,8 @@ chrome.runtime.onMessage.addListener(
 
   		var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
   		isEnabled = get("notification");
+  		save(ext_name+'SongInfo', JSON.stringify(songInfo));
   		if(isEnabled == 1 || isEnabled == "1") {
-			save(ext_name+'SongInfo', JSON.stringify(songInfo));
   			createNotification(request.ico, request.title, request.message);	
   		}
   	}
