@@ -4,12 +4,12 @@
 
     <title>Gaana Extention Options</title>
     <link rel="stylesheet" href="css/kickstart.css" media="all" />
-    <script src="js/jquery.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/local_storage.js"></script>
+
 
   </head>
   <body>
+  	<div class="notice success" style="display:none;"><i class="icon-ok icon-large"></i> Option Saved Successfully 
+<a href="#close" class="icon-remove"></a></div>
   	<hr class="alt1" />
   	<div class="">
 		
@@ -45,8 +45,15 @@
 					<td></td>
 				</tr></tbody>
 				</table>
+				<form id="optionForm">
+					<input type="checkbox" name="notificationToggle" id="notificationToggle" checked="checked"/><label for="check1" class="inline"> 	Notification</label> 
+					<br/>
+					<br/>
+					<button id="save" type="submit"> Save</button>
+					<div id="results"></div>
+				</form>
 			</div>
-			
+
 		</div>
 		
 		<div class="col_4 column">
@@ -81,6 +88,12 @@
 			</p>
 		</address>
 	</div>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/options.js"></script>
+    <script src="js/kickstart.js"></script>
+    <script src="js/local_storage.js"></script>
   </body>
 </html>
 

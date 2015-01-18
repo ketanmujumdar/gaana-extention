@@ -11,12 +11,11 @@ chrome.runtime.onMessage.addListener(
   	if(request.notify == 'notification') {
 
   		var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
-  		console.log(songInfo);
-  		//if(!isSimillar(songInfo)) {
+  		isEnabled = get("notification");
+  		if(isEnabled == 1 || isEnabled == "1") {
 			save(ext_name+'SongInfo', JSON.stringify(songInfo));
   			createNotification(request.ico, request.title, request.message);	
-  			//sendResponse(JSON.stringify(songInfo));
-  		//}
+  		}
   	}
 
 
@@ -32,7 +31,6 @@ chrome.runtime.onMessage.addListener(
   		save(save(ext_name+'isRadio', JSON.stringify(isRadio)));
   	}
 
-    //sendResponse({returnMsg: value}); // optional response
   });
 
 

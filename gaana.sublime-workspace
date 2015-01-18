@@ -59,72 +59,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "popup.html",
-			"settings":
-			{
-				"buffer_size": 2699,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "manifest.json",
-			"settings":
-			{
-				"buffer_size": 1388,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/test.js",
-			"settings":
-			{
-				"buffer_size": 4184,
-				"line_ending": "Unix",
-				"name": "/*"
-			}
-		},
-		{
-			"file": "js/popup.js",
-			"settings":
-			{
-				"buffer_size": 3209,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "options.html",
-			"settings":
-			{
-				"buffer_size": 2262,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/event.js",
-			"settings":
-			{
-				"buffer_size": 1660,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/background.js",
-			"settings":
-			{
-				"buffer_size": 2178,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "8779\n7650\n\n\nimport os\nimport sys\n\nfrom os import path\n\nTHRESHOLD = 80*1024\n\ndef get_size(filepath):\n    statinfo = os.stat(filepath)\n    return statinfo.st_size\n\ndef main(rootpath, outfile):\n    result = []\n    for root, dirs, files in os.walk(rootpath):\n        for name in files:\n            fullpath = os.path.join(root, name)\n            filesize = get_size(fullpath)\n            if  filesize > THRESHOLD and filesize < 201*1024:\n                file_info = '%sK %s' % (int(filesize/1024), fullpath)\n                result.append(file_info)\n    output(result, outfile)\n\ndef output(result, outfile):\n    ufile = open(outfile, 'w')\n    ufile.write('\\n'.join(result))\n\nif __name__ == '__main__':\n    main(sys.argv[1], sys.argv[2])",
-			"settings":
-			{
-				"buffer_size": 731,
-				"line_ending": "Unix",
-				"name": "8779"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -150,15 +84,23 @@
 	},
 	"file_history":
 	[
+		"/Users/ketanmujumdar/Public/gaana-extention/js/event.js",
+		"/Users/ketanmujumdar/Public/gaana-extention/js/test.js",
+		"/Users/ketanmujumdar/Public/gaana-extention/manifest.json",
+		"/Users/ketanmujumdar/Public/gaana-extention/js/background.js",
+		"/Users/ketanmujumdar/Public/gaana-extention/popup.html",
+		"/Users/ketanmujumdar/Public/gaana-extention/js/popup.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/config.js",
+		"/Users/ketanmujumdar/Public/gaana-extention/options.html",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/options.js",
+		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/options.html",
 		"/Library/WebServer/Documents/git-master/alice/public/css/live/alice-min-idfas.css",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/jquery.simulate.js",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/popup.js",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/manifest.json",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/operations.js",
-		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/options.html",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/event.js",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/background.js",
-		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/config.js",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/local_storage.js",
 		"/Users/ketanmujumdar/Ketan's Project chrome Extentions/Gaana Extention/js/notifications.js",
 		"/Users/ketanmujumdar/Documents/zalora/untitled.json",
@@ -244,225 +186,8 @@
 	"groups":
 	[
 		{
-			"selected": 7,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "popup.html",
-					"settings":
-					{
-						"buffer_size": 2699,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								449,
-								449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "manifest.json",
-					"settings":
-					{
-						"buffer_size": 1388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/test.js",
-					"settings":
-					{
-						"buffer_size": 4184,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4184,
-								4184
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/*",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1489.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/popup.js",
-					"settings":
-					{
-						"buffer_size": 3209,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								769,
-								801
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 739.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "options.html",
-					"settings":
-					{
-						"buffer_size": 2262,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1797,
-								1797
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 584.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "js/event.js",
-					"settings":
-					{
-						"buffer_size": 1660,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1381,
-								1381
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "js/background.js",
-					"settings":
-					{
-						"buffer_size": 2178,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								850,
-								850
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 18.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"settings":
-					{
-						"buffer_size": 731,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								160,
-								160
-							]
-						],
-						"settings":
-						{
-							"auto_name": "8779",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
