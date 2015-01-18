@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Gaana.com extention, to make your life simple",
-  "version": "1.2",
+  "version": "2.0",
   "permissions": [
     "tabs",  
     "<all_urls>", 
