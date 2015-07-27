@@ -72,7 +72,6 @@ jQuery(document).ready(function(){
 
 
 	function initGaana() {
-		debugger;
 		var songnm = jQuery('.song-title1 #tx').text().split(" - ")[0];
 		var songalbm = jQuery('#tx .albumNamePl').html();
 		var songicon = jQuery('.thumbHolder img').attr('src');

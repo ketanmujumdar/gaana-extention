@@ -41,7 +41,7 @@ chrome.runtime.onMessage.addListener(
 	chrome.commands.onCommand.addListener(function(command) {
 	var tab_id = 0;
 
-	chrome.tabs.query({'url': '*://'+ext_site_name+'/*'},function(tab){
+	chrome.tabs.query({'url': '*://'+ext_site_name+'*'},function(tab){
 			try {
 				tab_id = tab[0].id;
 				if (command == "extplayPause") {
@@ -58,9 +58,7 @@ chrome.runtime.onMessage.addListener(
 				}
 			}
 			catch(err) {
-				chrome.tabs.create({'url': ext_protocal+ext_site_name}, function(tab) {
-		  			tab_id = tab.id;
-		  		});
+				console.log("No "+ ext_site_name + " site found in the open tabs");
 			}
 		});
 	});

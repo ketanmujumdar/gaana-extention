@@ -1,29 +1,24 @@
 jQuery(document).ready(function(){
 
 var tab_id = 0;
-
-
+var site_found = false;
 
 isUpdated = get("updated");
-if( isUpdated != "1421579528" || isUpdated != 1421579528) {
+if( isUpdated != "1438005669" || isUpdated != 1438005669) {
 	window.open(chrome.extension.getURL("options.html"));
-	save("updated", 1421579528);
+	save("updated", 1438005669);
 }
 	
 
-	
-
-
-	chrome.tabs.query({'url': '*://'+ext_site_name+'/*'},function(tab){
+	chrome.tabs.query({'url': '*://'+ext_site_name+'*'},function(tab){
 		try
 		{
 			tab_id = tab[0].id;
+			site_found = true;
 		}
 		catch(err) {
-			chrome.tabs.create({'url': ext_protocal+ext_site_name}, function(tab) {
-		  		tab_id = tab.id;
-		  		window.close();
-		  });
+			site_found = false;
+			console.log("No "+ ext_site_name + " site found in the open tabs");
 		}
     });
 
@@ -32,46 +27,38 @@ if( isUpdated != "1421579528" || isUpdated != 1421579528) {
 	setTimeout(function(){window.location.href = ext_popup;}, 5000);
 
 	jQuery('.extPlayPause').click(function(){
-	chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
-		
-		//chrome.tabs.getSelected(null, function(tabs){jQuery('.crap').html(tabs.id);});
-		//chrome.tabs.executeScript(null, { file: "js/play.js" });
-		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.playPause')[0].click();"});
-		
-	});
-		// jQuery('.extPlayPause i').removeClass('icon-play');
-		// jQuery('.extPlayPause i').addClass('icon-pause');
+		if(site_found == true) {
+			chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
+			chrome.tabs.executeScript(tab_id, {code:"jQuery('a.playPause')[0].click();"});
+			});	
+		}
 	});
 
 	jQuery('.extPrev').click(function(){
-		chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
-    		//chrome.tabs.executeScript(null, { file: "js/play.js" });
-    		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.previous')[0].click();"});
-    		setTimeout(function(){window.location.href = ext_popup;}, 500);
-    		
-		});
-		// jQuery('.extPlayPause i').removeClass('icon-play');
-		// jQuery('.extPlayPause i').addClass('icon-pause');
+		if(site_found == true) {
+			chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
+	    		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.previous')[0].click();"});
+	    		setTimeout(function(){window.location.href = ext_popup;}, 500);
+			});
+		}
 	});
 
 	jQuery('.extNext').click(function(){
-		chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
-    		//chrome.tabs.executeScript(null, { file: "js/play.js" });
-    		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.next')[0].click();"});
-    		setTimeout(function(){window.location.href = ext_popup;}, 500);
-		});
-		// jQuery('.extPlayPause i').removeClass('icon-play');
-		// jQuery('.extPlayPause i').addClass('icon-pause');
+		if(site_found == true) {
+			chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
+	    		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.next')[0].click();"});
+	    		setTimeout(function(){window.location.href = ext_popup;}, 500);
+			});
+		}
 	});
 
 	jQuery('.extShuffle').click(function(){
-		chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
-    		//chrome.tabs.executeScript(null, { file: "js/play.js" });
-    		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.shuffle')[0].click();"});
-    		setTimeout(function(){window.location.href = ext_popup;}, 500);
-		});
-		// jQuery('.extPlayPause i').removeClass('icon-play');
-		// jQuery('.extPlayPause i').addClass('icon-pause');
+		if(site_found == true) {
+			chrome.tabs.executeScript(tab_id, { file: "js/jquery.js" }, function() {
+	    		chrome.tabs.executeScript(tab_id, {code:"jQuery('a.shuffle')[0].click();"});
+	    		setTimeout(function(){window.location.href = ext_popup;}, 500);
+			});
+		}
 	});
 
 	function setSongInfo() {
@@ -97,14 +84,13 @@ if( isUpdated != "1421579528" || isUpdated != 1421579528) {
 	}
 });
 
-	//GA Tracking
+//GA Tracking
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41905417-1']);
+_gaq.push(['_trackPageview']);
 
-      var _gaq = _gaq || [];
-     _gaq.push(['_setAccount', 'UA-41905417-1']);
-          _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = 'https://ssl.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();

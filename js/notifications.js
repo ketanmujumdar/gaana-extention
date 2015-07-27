@@ -14,7 +14,5 @@ function createNotification(icon, title, notificationMessage) {
 
 	chrome.notifications.create("gaana", opt, function() {});
 	chrome.notifications.clear("gaana", function() {});
-
-	//setTimeout(function(){notification.cancel();},ext_timeOut);
 }
 
