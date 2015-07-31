@@ -4,3 +4,4 @@ exclude_paths:
  - "js/kickstart.js"
  - "js/jquery.ms.js"
  - "js/jquery.js"
+ - "img/fancybox/jquery.fancybox-1.3.4.js"
