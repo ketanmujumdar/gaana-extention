@@ -8,12 +8,6 @@ jQuery(document).ready(function(){
 	var gaanaLoaded = false;
 	var isPaused = true;
 
-
-	//initialize local storage
-	// if(!gaanaLoaded) {
-	// 	initGaana();
-	// 	gaanaLoaded	= true;
-	// }
 	
 	/* Trigger when the mplayer is loaded */
 	jQuery('.song-title1').bind('DOMNodeInserted', function(event) {
@@ -23,38 +17,19 @@ jQuery(document).ready(function(){
 
 	/* Fetch the latest thumbnail */
 	jQuery('.thumbHolder').bind('DOMNodeInserted', function(event) {
-
+		initGaana();
+		setTimeout(function(){},300); 
 		imgInfo = jQuery(event.target.outerHTML).attr('src');
-		
-		if(!isEmpty(imgInfo)) {
-			ico = imgInfo;
-		}		
-		callNotification(ico, songName, songAlbum);
+		songName = jQuery(event.target).find('.song-title1 #tx').text().split(" - ")[0];
+		songAlbum = jQuery(event.target).find('#tx .albumNamePl').html();
+		console.log(imgInfo);
+	
+		callNotification(imgInfo, songName, songAlbum);
 	});
-
-	/* Fetch Song Info */
-	jQuery('.song-title1').bind('DOMSubtreeModified', function(event) {
-		try {
-			initGaana();
-			songInfo = jQuery(event.target).find(".song-title1").html();
-			if(!isEmpty(songInfo)) {
-				imgInfo = jQuery(event.target.outerHTML).attr('src');
-				songName = jQuery(event.target).find('.song-title1 #tx').text().split(" - ")[0];
-				songAlbum = jQuery(event.target).find('#tx .albumNamePl').html();
-				callNotification(imgInfo, songName, songAlbum);
-			}
-
-		}
-		catch(exception) {
-
-		}
-    });
-
 
 	function callNotification(ico, songName, songAlbum) {
 		if(!isEmpty(songName) && !isEmpty(songAlbum) && !isEmpty(ico)) {
 				 chrome.runtime.sendMessage({notify:'notification', ico: ico, title: songName, message: songAlbum}, function(response) {
-				 	console.log(response);
 				 	songName = '';
 				 	songAlbum = '';
 				 	ico = '';

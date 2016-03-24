@@ -4,9 +4,9 @@ var tab_id = 0;
 var site_found = false;
 
 isUpdated = get("updated");
-if( isUpdated != "1438005669" || isUpdated != 1438005669) {
+if( isUpdated != "1438005670" || isUpdated != 1438005670) {
 	window.open(chrome.extension.getURL("options.html"));
-	save("updated", 1438005669);
+	save("updated", 1438005670);
 }
 	
 
@@ -63,7 +63,6 @@ if( isUpdated != "1438005669" || isUpdated != 1438005669) {
 
 	function setSongInfo() {
 		try {
-			console.log(get(ext_name+'SongInfo'));
 			var SongInfo = JSON.parse(get(ext_name+'SongInfo'));
 			if(SongInfo == undefined || SongInfo == 'undefined' || SongInfo == null)
 			{

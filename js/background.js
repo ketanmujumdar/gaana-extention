@@ -7,9 +7,9 @@ jQuery(document).ready(function(){
 */
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-  	console.log(request.notify);
+  	//console.log(request.notify);
+  	console.log(request.ico);
   	if(request.notify == 'notification') {
-
   		var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
   		isEnabled = get("notification");
   		save(ext_name+'SongInfo', JSON.stringify(songInfo));

@@ -20,4 +20,4 @@ var ext_name = "gaana";
 var ext_popup = "popup.html";
 
 //Gaana Radio urls
-var ext_radio = "http://gaana.com/#!/radiostations";
+var ext_radio = "gaana.com/#!/radiostations";
