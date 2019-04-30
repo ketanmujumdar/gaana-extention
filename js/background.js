@@ -7,8 +7,6 @@ jQuery(document).ready(function(){
 */
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-  	//console.log(request.notify);
-  	console.log(request.ico);
   	if(request.notify == 'notification') {
   		var songInfo = {'ico': request.ico, 'title' : request.title, 'album': request.message};
   		isEnabled = get("notification");
@@ -48,10 +46,10 @@ chrome.runtime.onMessage.addListener(
 					chrome.tabs.executeScript(tab_id, { code: "jQuery('a.playPause')[0].click();" });
 				}
 				if(command == "extNext") {
-					chrome.tabs.executeScript(tab_id, { code: "jQuery('a.next')[0].click();" });
+					chrome.tabs.executeScript(tab_id, { code: "jQuery('a.next-song')[0].click();" });
 				}
 				if(command == "extPrev") {
-					chrome.tabs.executeScript(tab_id, { code: "jQuery('a.prev')[0].click();" });
+					chrome.tabs.executeScript(tab_id, { code: "jQuery('a.prev-song')[0].click();" });
 				}
 				if(command == "extShuffle") {
 					chrome.tabs.executeScript(tab_id, {code:"jQuery('a.shuffle')[0].click();"});

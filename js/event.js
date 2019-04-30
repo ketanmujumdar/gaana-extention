@@ -10,19 +10,19 @@ jQuery(document).ready(function(){
 
 	
 	/* Trigger when the mplayer is loaded */
-	jQuery('.song-title1').bind('DOMNodeInserted', function(event) {
+	jQuery('.player-song-title').bind('DOMNodeInserted', function(event) {
 		initGaana();
 		gaanaLoaded	= true;
 	});
 
 	/* Fetch the latest thumbnail */
 	jQuery('.thumbHolder').bind('DOMNodeInserted', function(event) {
+		var player = jQuery(event.target).closest('.player-lt').first();
 		initGaana();
-		setTimeout(function(){},300); 
-		imgInfo = jQuery(event.target.outerHTML).attr('src');
-		songName = jQuery(event.target).find('.song-title1 #tx').text().split(" - ")[0];
-		songAlbum = jQuery(event.target).find('#tx .albumNamePl').html();
-		console.log(imgInfo);
+		setTimeout(function(){},200); 
+		imgInfo = player.find('.song-details-inner .thumbHolder img').attr('src');
+		songName = player.find('.player-song-title #stitle').text().split(" - ")[0];
+		songAlbum = player.find('.player-song-title #atitle').first().text();
 	
 		callNotification(imgInfo, songName, songAlbum);
 	});
